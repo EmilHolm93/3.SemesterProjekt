@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <script>
+        const URL = "http://127.0.0.1:8080"; // Server URL
+
+        // POST new data for login
+        function sendData() {
+            const loginData = {
+                Username: document.getElementById("Username").value,
+                Password: document.getElementById("Password").value,
+            };
+
+            fetch(`${URL}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(loginData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Login successful!");
+                    window.location.replace(URL + "/profile"); // Redirect to profile after successful login
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(error => {
+                alert("Error: " + error.message);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Casino Chip Counter</h1>
+    <p>Enter login data:</p>
+    <form id="login" onsubmit="event.preventDefault(); sendData();">
+        <p>Username:<input id="Username" type="text" required></p>
+        <p>Password:<input id="Password" type="password" required></p>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

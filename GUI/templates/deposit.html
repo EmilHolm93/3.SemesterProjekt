@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Deposit</title>
+</head>
+<body>
+    <h1>Deposit</h1>
+    <p>Place your chips under the scanner to deposit.</p>
+
+    <!-- Display current balance -->
+    <p>Your current balance: {{ balance }}</p>
+
+    <!-- Display message if provided -->
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <!-- Buttons for each valid deposit amount -->
+    <div>
+        <p>Select an amount to deposit:</p>
+        {% for amount in valid_amounts %}
+            <form action="/profile/deposit" method="POST" style="display:inline;">
+                <input type="hidden" name="amount" value="{{ amount }}">
+                <button type="submit">{{ amount }}</button>
+            </form>
+        {% endfor %}
+    </div>
+
+    <!-- Back button -->
+    <form action="/profile" method="GET">
+        <button type="submit">Back</button>
+    </form>
+</body>
+</html>

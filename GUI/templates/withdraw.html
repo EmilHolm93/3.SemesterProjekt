@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Withdraw</title>
+    <script>
+
+    </script>
+</head>
+<body>
+
+    <h1>Withdraw</h1>
+    <p>Current Balance: {{ balance }}</p>
+
+    {% if message %}
+    <p style="color: green;">{{ message }}</p> <!-- Show success or error message -->
+    {% endif %}
+
+    <!-- Preset Withdraw Buttons -->
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="100">Withdraw 100</button>
+    </form>
+
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="200">Withdraw 200</button>
+    </form>
+
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="500">Withdraw 500</button>
+    </form>
+
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="1000">Withdraw 1000</button>
+    </form>
+
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="2000">Withdraw 2000</button>
+    </form>
+
+    <form action="/profile/withdraw" method="POST">
+        <button type="submit" name="amount" value="5000">Withdraw 5000</button>
+    </form>
+
+    <!-- Custom Withdraw Form -->
+    <form action="/profile/withdraw" method="POST">
+        <label for="custom_amount">Enter Custom Amount:</label>
+        <input type="number" id="custom_amount" name="amount" min="1" required>
+        <button type="submit">Withdraw</button>
+    </form>
+
+
+    <!-- Back button -->
+    <form action="/profile">
+        <button type="submit">Back</button>
+    </form>
+    
+
+</body>
+</html>

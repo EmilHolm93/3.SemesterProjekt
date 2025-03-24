@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ current_user.username }}!</h1> <!-- Display logged-in user's username -->
+    
+    <p>You are now logged in</p>
+    
+
+    <!-- Deposit button -->
+    <form action="/profile/deposit" method="GET">
+        <button type="submit">Deposit</button>
+    </form>
+
+    <!-- Withdraw button -->
+    <form action="/profile/withdraw" method="GET">
+        <button type="submit">Withdraw</button>
+    </form>
+
+    <!-- Check balance button -->
+    <form action="/profile/balance" method="GET">
+        <button type="submit">Check balance</button>
+    </form>
+
+    <!-- Logout button -->
+    <form action="/logout" method="GET">
+        <button type="submit">Logout</button>
+    </form>
+
+
+</body>
+</html>
